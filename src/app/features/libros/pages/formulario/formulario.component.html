@@ -1,0 +1,34 @@
+<h2>{{ libroId ? 'Editar Libro' : 'Nuevo Libro' }}</h2>
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()" class="formulario">
+
+   <label for="titulo">Título</label>
+   <input id="titulo" type="text" formControlName="titulo" />
+   <div class="error" *ngIf="formulario.get('titulo')?.touched && formulario.get('titulo')?.invalid">
+      Título obligatorio
+   </div>
+
+   <label for="autor">Autor</label>
+   <input id="autor" type="text" formControlName="autor" />
+   <div class="error" *ngIf="formulario.get('autor')?.touched && formulario.get('autor')?.invalid">
+      Autor obligatorio
+   </div>
+
+   <label for="genero">Género</label>
+   <input id="genero" type="text" formControlName="genero" />
+   <div class="error" *ngIf="formulario.get('genero')?.touched && formulario.get('genero')?.invalid">
+      Género obligatorio
+   </div>
+
+   <label for="publicado">Año de publicación</label>
+   <input id="publicado" type="number" formControlName="publicado" />
+   <div class="error" *ngIf="formulario.get('publicado')?.touched && formulario.get('publicado')?.invalid">
+      Año obligatorio
+   </div>
+
+   <label for="descripcion">Descripción</label>
+   <textarea id="descripcion" formControlName="descripcion"></textarea>
+
+   <button type="submit">{{ libroId ? 'Actualizar' : 'Guardar' }}</button>
+
+</form>

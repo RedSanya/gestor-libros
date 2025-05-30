@@ -1,0 +1,39 @@
+ul{
+   padding: 1rem;
+   place-self: center;
+
+   li{
+      padding: 0.5rem;
+   }
+}
+.buscador {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.paginador {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  button {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+
+    &.active {
+      background: #1976d2;
+      color: white;
+      border-color: #1976d2;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

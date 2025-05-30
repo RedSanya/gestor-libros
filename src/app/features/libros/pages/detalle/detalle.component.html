@@ -1,0 +1,13 @@
+<h2>Detalles del Libro</h2>
+
+<div *ngIf="libro">
+   <p><strong>Título:</strong> {{ libro.titulo }}</p>
+   <p><strong>Autor:</strong> {{ libro.autor }}</p>
+   <p><strong>Género:</strong> {{ libro.genero }}</p>
+   <p><strong>Publicado:</strong> {{ libro.publicado }}</p>
+   <p><strong>Descripción:</strong> {{ libro.descripcion }}</p>
+</div>
+
+<div *ngIf="!libro">
+   <p>Cargando detalles...</p>
+</div>

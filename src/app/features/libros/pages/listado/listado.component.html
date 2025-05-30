@@ -1,0 +1,41 @@
+<h2>Listado de Libros</h2>
+
+<!-- Campo de búsqueda -->
+<input type="text" [(ngModel)]="busqueda" placeholder="Buscar por título..." class="buscador" />
+
+<!--Lista filtrada -->
+<ul *ngIf="librosFiltrados.length > 0; else sinResultados">
+   <li *ngFor="let libro of librosPaginados">
+      <strong>{{ libro.titulo }}</strong>
+      — {{ libro.autor }} <em>({{ libro.genero }})</em>
+      <br />
+
+      <!-- Botones de acción -->
+      <button [routerLink]="['/libros', libro.id]">🔍 Ver detalles</button>
+      <button [routerLink]="['/libros/editar', libro.id]">✏️ Editar</button>
+      <button (click)="eliminarLibro(libro.id!)">🗑 Eliminar</button>
+   </li>
+</ul>
+
+<ng-template #sinResultados>
+   <p>No se encontraron libros para “{{ busqueda }}”.</p>
+</ng-template>
+
+<div *ngIf="!cargando && libros.length === 0">
+   No hay libros disponibles.
+</div>
+
+<!-- CONTROLES DE PAGINACIÓN -->
+<nav class="paginador" *ngIf="totalPages > 1">
+   <button (click)="cambiarPagina(page-1)" [disabled]="page === 1">
+      « Anterior
+   </button>
+
+   <button *ngFor="let p of pages" (click)="cambiarPagina(p)" [class.active]="p === page">
+      {{ p }}
+   </button>
+
+   <button (click)="cambiarPagina(page+1)" [disabled]="page === totalPages">
+      Siguiente »
+   </button>
+</nav>

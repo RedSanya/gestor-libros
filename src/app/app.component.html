@@ -1,0 +1,13 @@
+<nav class="navbar">
+   <a routerLink="/libros" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Libros</a>
+   <a routerLink="/libros/nuevo" routerLinkActive="active">Nuevo</a>
+   <a routerLink="/libros/grafico" routerLinkActive="active">Gráfico</a>
+</nav>
+
+<hr />
+<main>
+   <router-outlet></router-outlet>
+</main>
+<footer class="footer">
+   <p>Gestor de Libros © 2025 - Desarrollado por Alexander</p>
+</footer>
